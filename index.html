@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager App</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="task-manager">
+      <h1 class="task-manager__title">Task Manager</h1>
+
+      <div class="task-manager__actions">
+        <button id="new-task-btn" class="btn btn--primary">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 5V19M5 12H19"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Nueva Tarea
+        </button>
+        <button id="filter-btn" class="btn btn--secondary">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M22 3H2L10 12.46V19L14 21V12.46L22 3Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Filtros
+        </button>
+        <div id="filter-menu" class="filter-menu" style="display: none">
+          <button class="btn btn--primary filter-option" data-filter="all">
+            Todos
+          </button>
+          <button
+            class="btn btn--primary filter-option"
+            data-filter="completed"
+          >
+            Completados
+          </button>
+          <button class="btn btn--primary filter-option" data-filter="pending">
+            Pendientes
+          </button>
+        </div>
+      </div>
+
+      <form id="task-form" class="task-form" style="display: none">
+        <input
+          type="text"
+          id="task-input"
+          class="task-form__input"
+          placeholder="Agrega una nueva tarea"
+          required
+        />
+        <button type="submit" class="btn btn--primary">Agregar Tarea</button>
+      </form>
+
+      <ul id="task-list" class="task-list"></ul>
+    </div>
+
+    <div id="feedback" class="feedback"></div>
+
+    <script src="scripts/taskManager.js" type="module"></script>
+  </body>
+</html>

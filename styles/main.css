@@ -1,0 +1,228 @@
+:root {
+  --background-color: #1e1e1e;
+  --card-background: #252525;
+  --text-color: #ffffff;
+  --text-secondary: #a0a0a0;
+  --primary-color: #5b21b6;
+  --secondary-color: #4c1d95;
+  --border-color: #333333;
+  --checkbox-border: #4a4a4a;
+  --checkbox-background: #3a3a3a;
+  --hover-color: #2a2a2a;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.task-manager {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.task-manager__title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.task-manager__actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn--primary {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn--primary:hover {
+  background-color: var(--secondary-color);
+}
+
+.btn--secondary {
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.btn--secondary:hover {
+  background-color: var(--hover-color);
+}
+
+.filter-menu {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-form__input {
+  flex-grow: 1;
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+}
+
+.task-form__input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.task-item__checkbox {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--checkbox-border);
+  border-radius: 4px;
+  margin-right: 12px;
+  cursor: pointer;
+  position: relative;
+  background-color: var(--checkbox-background);
+}
+
+.task-item__checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--primary-color);
+  font-size: 14px;
+}
+
+.task-item__text {
+  flex-grow: 1;
+  font-size: 14px;
+}
+
+.task-item--completed .task-item__text {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.task-item__edit-input {
+  flex-grow: 1;
+  padding: 4px 8px;
+  font-size: 14px;
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  margin-right: 8px;
+}
+
+.task-item__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 14px;
+  padding: 4px;
+  margin-left: 8px;
+}
+
+.task-item__button:hover {
+  color: var(--text-color);
+}
+
+.feedback {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-weight: 500;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.feedback--show {
+  opacity: 1;
+}
+
+.feedback--success {
+  background-color: #059669;
+}
+
+.feedback--error {
+  background-color: #dc2626;
+}
+
+@media (max-width: 600px) {
+  .task-manager {
+    margin: 20px;
+    padding: 10px;
+  }
+
+  .task-manager__actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .filter-menu {
+    flex-direction: column;
+  }
+
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-form__input {
+    width: 100%-1px;
+  }
+  .task-form .btn {
+    width: 100%;
+  }
+}
